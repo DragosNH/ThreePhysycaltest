@@ -8,12 +8,14 @@ const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(width, height);
 document.body.appendChild( renderer.domElement );
-camera.position.set(0, 0, 10);
+camera.position.set(0, 0, 80);
 
-const geometry = new THREE.BoxGeometry( 1, 1, 1 );
-const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
-scene.add( cube );
+const geo = new THREE.SphereGeometry( 15, 32, 16 );
+const mat = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+const mainSphere = new THREE.Mesh( geo, mat );
+scene.add( mainSphere );
+
+console.log(mainSphere + " sphere added")
 
 window.addEventListener('resize', () => {
     width = window.innerWidth;
